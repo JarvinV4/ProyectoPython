@@ -1,1 +1,1 @@
-print("Dios nos salve")
+print("Dios mio")
