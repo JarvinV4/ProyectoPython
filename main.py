@@ -1,4 +1,10 @@
+from Persona import Persona
+
+
 print("Dios mio")
 
 
-print("Hola mundo")
+
+
+
+
