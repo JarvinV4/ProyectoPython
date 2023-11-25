@@ -9,3 +9,6 @@ class Administrador(Personal):
 
     def CalculoSalario(self):
         return super().CalculoSalario()
+    
+    def __str__(self):
+        return (f"Administrador: {self.nombre} {self.apellido}, ID: {self.identidad}, Telefono: {self.telefono}, No. Empleado: {self.no_empleado}, Salario: {self.salario}")
