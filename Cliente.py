@@ -6,4 +6,4 @@ class Cliente(Persona):
         self.rtn = rtn
 
     def SeleccionarProductos(self):
-        print("Hola, estoy seleccionando productos.")
+        print("A")
