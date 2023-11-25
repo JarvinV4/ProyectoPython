@@ -1,7 +1,7 @@
 from Persona import Persona
 
 
-print("Dios mio")
+print("Dios mio ")
 
 
 
