@@ -76,10 +76,10 @@ clientes =[]
 empleados =[]
 #lista de cuentas para acceder a las funcionalidades especificas
 cuentas_usuario = [
-    {"usuario":"admin", "contrasena":"admin"},
-    {"usuario":"comprador", "contrasena":"comprador"},
-    {"usuario":"consultor", "contrasena":"consultor"},
-    {"usuario":"vendedor", "contrasena":"vendedor"}
+    {"usuario":"admin", "contrasena":"123"},
+    {"usuario":"comprador", "contrasena":"123"},
+    {"usuario":"consultor", "contrasena":"123"},
+    {"usuario":"vendedor", "contrasena":"123"}
 
 ]
 
@@ -103,8 +103,8 @@ while True:
 
     elif opcion =="2":
         print("Empleado")
-        usuario_ingresado = input("Ingrese su nombre de usuario:") 
-        contrasena_ingresado = input("Ingrese su contrasena:") 
+        usuario_ingresado = input("Ingrese su nombre de usuario: ") 
+        contrasena_ingresado = input("Ingrese su contrasena: ") 
         iniciar_sesion=None
         for cuenta in cuentas_usuario:
             if cuenta["usuario"]== usuario_ingresado and cuenta["contrasena"]== contrasena_ingresado:
@@ -113,20 +113,66 @@ while True:
 
         if iniciar_sesion:
             #NOTA: borrar el bobeito
+            #NOTA: agregar funcionalidad de identificar tipo de empleado y actuar en consecuencia
+            print("***************************")
             print("¡Hola de nuevo! Bienvenido mi rey")
-            
+            print("***************************")
+            sesion_iniciada=True
+            while sesion_iniciada==True:
+                
+                if usuario_ingresado== "admin":
+                    print("Funcionalidades de administrador: ")
+                    print("1. *** Contratar nuevo empleado ***")
+                    print("2. *** Ver todos los empleados ***")
+                    print("3. *** Cerrar sesion ***")
+                    seleccion=input("***Ingrese que desea hacer***: ")
+                    
+                    usando_sistema=True
+                    while usando_sistema== True:
+                        if seleccion =="1":
+                            empleado_nuevo = ContratarPersonal()
+                            usando_sistema=False
+                        elif seleccion =="2":
+                            #NOTA: Hay un bug, que si la lista esta vacia hara un loop jaja
+                            print("Lista de empleados:")
+                            for empleado in empleados:
+                                 print (empleado)
+                                 usando_sistema=False
+                        elif seleccion=="3":
+                            print("¡Nos vemos!")
+                            usando_sistema=False
+                            iniciar_sesion=False
+                            sesion_iniciada=False
+                            break
+                            
+
+                    
+                    #break
+                elif usuario_ingresado == "comprador":
+                    print("Funcionalidades del comprador")
+                    #NOTA: agregar funcionalidad del comprador
+                    break
+                elif usuario_ingresado == "consultor":
+                    print("Funcionalidades del consultor")
+                    #NOTA: agregar funcionalidad del consultor
+                    break
+                elif usuario_ingresado == "vendedor":
+                    print("Funcionalidades del vendedor")
+                    #NOTA: agregar funcionalidad del vendedor
+                    break
+
         else:
             #NOTA: borrar el bobeito
-            print("QUIEN SOS")
+            print("***************************")
+            print("QUIEN SOS IDENTIFICATE BIEN")
+            print("***************************")
         
         #Solo puede contratar si es un admin
         #empleado_nuevo = ContratarPersonal()
 
     #Imprimir todo NOTA: solo para testing eliminar despues
     elif opcion =="21":
-        print("Listade empleados:")
-        for empleado in empleados:
-            print (empleado)
+        
         print("Listade clientes:")
         for cliente in clientes:
             print (cliente)
