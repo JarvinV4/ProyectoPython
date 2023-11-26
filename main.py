@@ -18,7 +18,7 @@ def agregar_cliente():
         for cliente_existente in clientes:
             if cliente_existente.identidad == identidad:
                 print(f"El cliente con la identidad {identidad} ya existe: ")
-                print(cliente_existente)
+                print(cliente_existente) #agregar funcionalidad para utilizar este cliente en vez de imprimirlo
                 # Salir  si el cliente ya existe
                 return 
         nombre = input("Ingrese su primer nombre: ")
@@ -35,11 +35,18 @@ def agregar_cliente():
 
 def ContratarPersonal():
     try:
+        no_empleado = input("Ingrese el numero de empleado: ")
+        # si el empleado ya existe no va a crear uno nuevo
+        for empleado_existente in empleados:
+            if empleado_existente.no_empleado == no_empleado:
+                print(f"El empleado con el numero de empleado {no_empleado} ya existe: ")
+                print(empleado_existente) #agregar funcionalidad para utilizar este cliente en vez de imprimirlo
+                # Salir  si el empleado ya existe
+                return 
         nombre = input("Ingrese el nombre del empleado: ")
         apellido = input("Ingrese el apellido del empleado: ")
         identidad = input("Ingrese la identidad del empleado: ")
         telefono = input("Ingrese el telefono del empleado: ")
-        no_empleado = input("Ingrese el numero de empleado: ")
         salario = float(input("Ingrese el salario del empleadp: "))
         print("¿Cual sera el cargo de este empleado?")
         print("1. Comprador")
@@ -68,25 +75,37 @@ def ContratarPersonal():
 clientes =[]
 empleados =[]
 
-"""
+
 while True:
     print("Pagina de LOGIN:")
     print("Elija la opcion adecuada a sus necesidades:")
     print("1. Si usted es cliente ")
     print("2. Si usted es un empleado ")
+    print("21. Para imprimir todos los clientes y empleados ** Nota: Solo para testing**")
     print("3. Salir")
     opcion=input()
     if opcion =="1":
         print("Cliente")
+        cliente_nuevo = agregar_cliente()
 
     elif opcion =="2":
         print("Empleado")
+        empleado_nuevo = ContratarPersonal()
+
+    #Imprimir todo NOTA: solo para testing eliminar despues
+    elif opcion =="21":
+        print("Listade empleados:")
+        for empleado in empleados:
+            print (empleado)
+        print("Listade clientes:")
+        for cliente in clientes:
+            print (cliente)
     
     elif opcion =="3":
         break
 
 
-"""
+
 
 
 while True:
