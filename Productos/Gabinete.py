@@ -6,6 +6,6 @@ class Gabinete(Producto):
         self._material = material
         self._color = color
         self._tamano_gabinete = tamano_gabinete
-        self._peso = peso
+        self._peso = float(peso)
         self._dimensiones = dimensiones
         self._capacidad_de_ventiladores = capacidad_de_ventiladores
