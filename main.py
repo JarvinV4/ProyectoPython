@@ -82,7 +82,23 @@ cuentas_usuario = [
     {"usuario":"vendedor", "contrasena":"123"}
 
 ]
+#GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
 
+#Cliente(nombre, apellido, identidad, telefono, rtn)
+cliente1 = Cliente("Pamela", "Gomez", "123456789", "27831234", "1234567890")
+clientes.append(cliente1)
+#Administrador (nombre, apellido, identidad, telefono, no_empleado,salario)
+admin1 = Administrador("Michael", "Scott", "101112131415", "27835678", "001", 50000)
+empleados.append(admin1)
+#Comprador(nombre, apellido, identidad, telefono, no_empleado,salario)
+comprador1 = Comprador("Carlos", "Costly", "1617181920", "27831011", "002", 35000)
+empleados.append(comprador1)
+#Consultor(nombre, apellido, identidad, telefono, no_empleado,salario, consultas hechas)
+consultor1 = Consultor("Maki", "Zenin", "2122232425", "27831213", "003", 20000, 20)
+empleados.append(consultor1)
+#Vendedor(nombre, apellido, identidad, telefono, no_empleado, salario, ventas realizadas)
+vendedor1 = Vendedor("Terre", "Neitor", "2627282930", "27831415", "004", 17000, 50)
+empleados.append(vendedor1)
 
 
 
@@ -138,6 +154,10 @@ while True:
                             for empleado in empleados:
                                  print (empleado)
                                  usando_sistema=False
+
+
+
+
                         elif seleccion=="3":
                             print("¡Nos vemos!")
                             usando_sistema=False
@@ -145,7 +165,6 @@ while True:
                             sesion_iniciada=False
                             break
                             
-
                     
                     #break
                 elif usuario_ingresado == "comprador":
