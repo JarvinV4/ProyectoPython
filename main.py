@@ -10,7 +10,7 @@ from Empleados.Vendedor import Vendedor
 
 print("Dios mio ")
 
-
+#MEMO: Esta funcion se encarga de agregar clientes o de localizar clientes ya existentes en caso de tener la misma identidad
 def agregar_cliente():
     try:
         identidad = input("Ingrese su numero de identidad: ")
@@ -18,7 +18,7 @@ def agregar_cliente():
         for cliente_existente in clientes:
             if cliente_existente.identidad == identidad:
                 print(f"El cliente con la identidad {identidad} ya existe: ")
-                print(cliente_existente) #agregar funcionalidad para utilizar este cliente en vez de imprimirlo
+                print("¡Bienvenido de nuevo! " + cliente_existente.nombre+" "+cliente_existente.apellido) #NOTA: agregar funcionalidad para utilizar este cliente en vez de imprimirlo
                 # Salir  si el cliente ya existe
                 return 
         nombre = input("Ingrese su primer nombre: ")
@@ -32,7 +32,7 @@ def agregar_cliente():
     except:
         print("Ingrese un valor correcto")
 
-
+#MEMO: Esta funcion se encarga de agregar empleados o de localizar empleados ya existentes en caso de tener lel mismo numero de empleado
 def ContratarPersonal():
     try:
         no_empleado = input("Ingrese el numero de empleado: ")
@@ -40,7 +40,7 @@ def ContratarPersonal():
         for empleado_existente in empleados:
             if empleado_existente.no_empleado == no_empleado:
                 print(f"El empleado con el numero de empleado {no_empleado} ya existe: ")
-                print(empleado_existente) #agregar funcionalidad para utilizar este cliente en vez de imprimirlo
+                print(empleado_existente) #NOTA: agregar funcionalidad para utilizar este cliente en vez de imprimirlo
                 # Salir  si el empleado ya existe
                 return 
         nombre = input("Ingrese el nombre del empleado: ")
@@ -74,6 +74,34 @@ def ContratarPersonal():
 
 clientes =[]
 empleados =[]
+#lista de cuentas para acceder a las funcionalidades especificas
+cuentas_usuario = [
+    {"usuario":"admin", "contrasena":"123"},
+    {"usuario":"comprador", "contrasena":"123"},
+    {"usuario":"consultor", "contrasena":"123"},
+    {"usuario":"vendedor", "contrasena":"123"}
+
+]
+#GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
+
+#Cliente(nombre, apellido, identidad, telefono, rtn)
+cliente1 = Cliente("Pamela", "Gomez", "123456789", "27831234", "1234567890")
+clientes.append(cliente1)
+#Administrador (nombre, apellido, identidad, telefono, no_empleado,salario)
+admin1 = Administrador("Michael", "Scott", "101112131415", "27835678", "001", 50000)
+empleados.append(admin1)
+#Comprador(nombre, apellido, identidad, telefono, no_empleado,salario)
+comprador1 = Comprador("Carlos", "Costly", "1617181920", "27831011", "002", 35000)
+empleados.append(comprador1)
+#Consultor(nombre, apellido, identidad, telefono, no_empleado,salario, consultas hechas)
+consultor1 = Consultor("Maki", "Zenin", "2122232425", "27831213", "003", 20000, 20)
+empleados.append(consultor1)
+#Vendedor(nombre, apellido, identidad, telefono, no_empleado, salario, ventas realizadas)
+vendedor1 = Vendedor("Terre", "Neitor", "2627282930", "27831415", "004", 17000, 50)
+empleados.append(vendedor1)
+
+
+
 
 
 while True:
@@ -87,16 +115,83 @@ while True:
     if opcion =="1":
         print("Cliente")
         cliente_nuevo = agregar_cliente()
+        #NOTA AGREGAR: Lista de productos o tal, lo primero que le va a salir al cliente al ingresar a la pagina
 
     elif opcion =="2":
         print("Empleado")
-        empleado_nuevo = ContratarPersonal()
+        usuario_ingresado = input("Ingrese su nombre de usuario: ") 
+        contrasena_ingresado = input("Ingrese su contrasena: ") 
+        iniciar_sesion=None
+        for cuenta in cuentas_usuario:
+            if cuenta["usuario"]== usuario_ingresado and cuenta["contrasena"]== contrasena_ingresado:
+                iniciar_sesion=True
+                break
+
+        if iniciar_sesion:
+            #NOTA: borrar el bobeito
+            #NOTA: agregar funcionalidad de identificar tipo de empleado y actuar en consecuencia
+            print("***************************")
+            print("¡Hola de nuevo! Bienvenido mi rey")
+            print("***************************")
+            sesion_iniciada=True
+            while sesion_iniciada==True:
+                
+                if usuario_ingresado== "admin":
+                    print("Funcionalidades de administrador: ")
+                    print("1. *** Contratar nuevo empleado ***")
+                    print("2. *** Ver todos los empleados ***")
+                    print("3. *** Cerrar sesion ***")
+                    seleccion=input("***Ingrese que desea hacer***: ")
+                    
+                    usando_sistema=True
+                    while usando_sistema== True:
+                        if seleccion =="1":
+                            empleado_nuevo = ContratarPersonal()
+                            usando_sistema=False
+                        elif seleccion =="2":
+                            #NOTA: Hay un bug, que si la lista esta vacia hara un loop jaja
+                            print("Lista de empleados:")
+                            for empleado in empleados:
+                                 print (empleado)
+                                 usando_sistema=False
+
+
+
+
+                        elif seleccion=="3":
+                            print("¡Nos vemos!")
+                            usando_sistema=False
+                            iniciar_sesion=False
+                            sesion_iniciada=False
+                            break
+                            
+                    
+                    #break
+                elif usuario_ingresado == "comprador":
+                    print("Funcionalidades del comprador")
+                    #NOTA: agregar funcionalidad del comprador
+                    break
+                elif usuario_ingresado == "consultor":
+                    print("Funcionalidades del consultor")
+                    #NOTA: agregar funcionalidad del consultor
+                    break
+                elif usuario_ingresado == "vendedor":
+                    print("Funcionalidades del vendedor")
+                    #NOTA: agregar funcionalidad del vendedor
+                    break
+
+        else:
+            #NOTA: borrar el bobeito
+            print("***************************")
+            print("QUIEN SOS IDENTIFICATE BIEN")
+            print("***************************")
+        
+        #Solo puede contratar si es un admin
+        #empleado_nuevo = ContratarPersonal()
 
     #Imprimir todo NOTA: solo para testing eliminar despues
     elif opcion =="21":
-        print("Listade empleados:")
-        for empleado in empleados:
-            print (empleado)
+        
         print("Listade clientes:")
         for cliente in clientes:
             print (cliente)
@@ -107,7 +202,7 @@ while True:
 
 
 
-
+""" NOTA: Esto no sirve ya, borrarlo despues
 while True:
     print("1. Agregar cliente")
     print("2. Agregar empleado")
@@ -141,3 +236,4 @@ while True:
 
     else:
         print("Seleccione una de las opciones disponibles")
+"""
