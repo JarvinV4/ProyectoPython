@@ -13,11 +13,19 @@ print("Dios mio ")
 
 def agregar_cliente():
     try:
-        nombre = input("Ingrese el nombre del cliente: ")
-        apellido = input("Ingrese el apellido del cliente: ")
-        identidad = input("Ingrese la identidad del cliente: ")
-        telefono = input("Ingrese el telefono del cliente: ")
-        rtn = input("Ingrese el rtn del cliente: ")
+        identidad = input("Ingrese su numero de identidad: ")
+        # si el cliente ya existe no va a crear uno nuevo
+        for cliente_existente in clientes:
+            if cliente_existente.identidad == identidad:
+                print(f"El cliente con la identidad {identidad} ya existe: ")
+                print(cliente_existente)
+                # Salir  si el cliente ya existe
+                return 
+        nombre = input("Ingrese su primer nombre: ")
+        apellido = input("Ingrese su apellido: ")
+        telefono = input("Ingrese su numero de telefonoe: ")
+        rtn = input("Ingrese su numero de rtn: ")
+
 
         cliente = Cliente(nombre, apellido, identidad, telefono, rtn)
         clientes.append(cliente)
@@ -60,6 +68,25 @@ def ContratarPersonal():
 clientes =[]
 empleados =[]
 
+"""
+while True:
+    print("Pagina de LOGIN:")
+    print("Elija la opcion adecuada a sus necesidades:")
+    print("1. Si usted es cliente ")
+    print("2. Si usted es un empleado ")
+    print("3. Salir")
+    opcion=input()
+    if opcion =="1":
+        print("Cliente")
+
+    elif opcion =="2":
+        print("Empleado")
+    
+    elif opcion =="3":
+        break
+
+
+"""
 
 
 while True:
