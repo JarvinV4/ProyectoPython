@@ -4,6 +4,7 @@ class Vendedor(Personal):
     def __init__(self, nombre, apellido, identidad, telefono, no_empleado, salario, ventasRealizadas):
         super().__init__(nombre, apellido, identidad, telefono, no_empleado, salario)
         self.ventasRealizadas=ventasRealizadas
+        self.nivelAcceso = 4
 
     def generarFactura(self):
         print("facrura")

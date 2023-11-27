@@ -3,7 +3,7 @@ from Personal import Personal
 class Administrador(Personal):
     def __init__(self, nombre, apellido, identidad, telefono, no_empleado, salario):
         super().__init__(nombre, apellido, identidad, telefono, no_empleado, salario)
-
+        self.nivelAcceso = 1
     
 
     def CalculoSalario(self):
