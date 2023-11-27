@@ -122,40 +122,9 @@ empleados.append(consultor1)
 vendedor1 = Vendedor("Terre", "Neitor", "2627282930", "27831415", "004", 17000, 50)
 empleados.append(vendedor1)
 
-#PRODUCTOS QUE YA EXISTEN EN EL PROGRAMA
-
-<<<<<<< Updated upstream
-#Producto(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor)
-#Gabinetes existentes en el programa
-gabinetes1 = Gabinete(4251, "Gabinete", "4000D Airflow", "Corsair", "Corsair", "B08C7BGV3D", 79.98, 60, "18/05/2021", "15/09/2020", "Corsair Gaming, Inc.", "Acero, vidrio templado, plástico", "Negro", "Mid Tower", 17.31, "17,83 x 9,06 x 18,35", "120 Milímetros")
-gabinetes2 = Gabinete(1825, "Gabinete", "Y60", "HYTE", "HYTE", "B0BVJ4ZFPZ", 169.99, 50, "25/06/2023", "15/03/2022", "HYTE, Inc.", "Vidrio templado", "Blanco Nieve", "Mid Tower", 22, "17,95 x 11,22 x 18,19 ", "120 Milímetros")
-
-#Monitores existentes en el programa
-monitores1 = Monitor(1414, "Monitor", "Pro MP251", "MSI", "MSI", "A4AGF5XFDV", 79.99, 240, "20/11/2023", "11/10/2023", "MSI, Inc.", "1920 x 1080", "25 Pulgadas", "HDMI", "100 Hz")
-monitores2 = Monitor(1423, "Monitor", "Odyssey G30A", "SAMSUNG", "SAMSUNG", "LS27AG302NNXZA", 169.99, 210, "19/07/2022", "21/06/2021", "Samsung Electronics Co., Ltd.", "1920 x 1080", "27 Pulgadas", "	Bluetooth, wifi, HDMI", "144 Hz")
-
-#Procesadores existentes en el programa
-procesador1 = Procesador(2524, "Procesador", "Core i7-12700KF", "Intel", "Intel Corporation", "B09FXKHN7M", 199.00, 130, "16/05/2022", "04/11/2021", "Intel Corporation", "Doceava Generación", "12 Nucleos", "25MB", "LGA 1700", "3.00 Hz")
-procesador2 = Procesador(2726, "Procesador", "Ryzen 9-5900X", "AMD", "AMD", "B08164VTWH", 288.99, 180, "16/05/2022", "08/10/2020", "Advanced Micro Devices, Inc.", "Quinta generacion", "12 Nucleos", "64MB", "Socket AM4", "4,8 GHz")
-
-#Tarjetas Graficas en el programa
-tarjeta_grafica1 = TarjetaGrafica(2429, "Tarjetas Graficas", "ROG Strix NVIDIA GeForce RTX 4070 Ti OC Edition", "ASUS", "ASUS", "B0BQTVQQP4", 899.99, 140, "01/03/2023", "05/01/2023", "Nvidia Corporation", "12GB", "HDMI", "2790 MHz")
-tarjeta_grafica2 = TarjetaGrafica(2437, "Tarjetas Graficas", "Radeon RX 7700 XT", "AMD", "Power Color", "B0CFP6F859", 429.99, 90, "01/11/2023", "06/09/2023", "Advanced Micro Devices, Inc.", "12GB", "HDMI, Mini DisplayPort", "2226 MHz")
-
-#Productos-Individuales que ya existen en el inventario
-producto_individual1 = ProductoIndividual(1234, "Mouse inalámbrico", "G305", "Logitech LIGHSTPEED", "Logitech", "910-005273", 43.75, 250, "23/09/2023", "06/2016", "Logitech, Inc.")
-producto_individual2 = ProductoIndividual(5678, "Teclado mecánico", "G715", "Logitech LIGTHSYNC TKL", "Logitech", "920-010684", 212, 140, "15/08/2023", "28/08/2022", "Logitech, Inc")
-producto_individual3 = ProductoIndividual(2345, "Memoria RAM", "Corsair", "VENGEANCE LPX DDR4", "Corsair", "B0143UM4TC", 67.99, 140, "01/04/2019", "15/06/2021", "Corsair Gaming, Inc.")
-
-#Productos -Combo que ya existen en el programa
-combos = [producto_individual1, producto_individual2]
-producto_combo1 = ProductoCombo(2323, "ComboNavideño","ComboModelo", "ComboMarca", "ComboFabricante", "CMB0001", 579.99, 15, "13/04/2022", "15/12/2022", "ComboProveedor", [producto_individual1])
-producto_combo2 = ProductoCombo(2327, "ComboBlackFriday", "ComboModelo","ComboMarca", "ComboFabricante", "CMB0002", 349.99, 20, "24/12/2023", "23/12/2023", "ComboProveedor", [monitores1, producto_individual1, producto_individual2])
 
 
 
-=======
->>>>>>> Stashed changes
 while True:
     try:
         print("Pagina de LOGIN:")
