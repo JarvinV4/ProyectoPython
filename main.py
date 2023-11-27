@@ -126,8 +126,8 @@ def agregarProducto():
                 salida = input("Salida: ")
                 frecuencia_gpu= input("Frecuencia gpu: ")
                 producto = TarjetaGrafica(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, vram, salida, frecuencia_gpu)
-                productos.append(producto)
-                for producto in productos:
+                tarjetaGrafica.append(producto)
+                for producto in tarjetaGrafica:
                     print(producto)
             case 4:
                 print("Ingresar datos del producto")
@@ -148,8 +148,8 @@ def agregarProducto():
                 zocalo_cpu=input("Zocalo CPU")
                 frecuencia_cpu= input("Frecuencia cpu: ")
                 producto = Procesador(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, generacion, nucleos, cache, zocalo_cpu, frecuencia_cpu)
-                productos.append(producto)
-                for producto in productos:
+                procesador.append(producto)
+                for producto in procesador:
                     print(producto)
             case 5:
                 print("Ingresar datos de nuevo producto")
@@ -208,6 +208,8 @@ def ConsultarProducto():
 
 clientes = []
 empleados = []
+tarjetaGrafica = []
+procesador = []
 combos = []
 productoIndividual = []
 inventario = []
