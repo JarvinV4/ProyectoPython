@@ -106,9 +106,51 @@ def agregarProducto():
         
         match(opcion):
             case 1:
-                pass
+                codigoProducto = GenerarCodigo()
+                modelo = input("Ingrese modelo del Gabinete: ")
+                marca = input("Ingrese el marca del Gabinete: ")
+                fabricante = input("Ingrese fabricante del Gabinete: ")
+                numeroSerie = input("Ingrese numero de serie del Gabinete: ")
+                precio = input("Ingrese precio del Gabinete: ")
+                cantidadInventario = input("Ingrese cantidad que comprara de Gabinete: s")
+                fechaCompra = input("Ingrese fecha de compra")
+                fechaFabricacion = input("Ingrese fehca de fabricacion del Gabinete: ")
+                proveedor = input("Ingrese proveedor del Gabinete: ")
+                material = input("Ingrese material del Gabinete: ")
+                color = input("Ingrese color del Gabinete: ")
+                tamanioGabinete = input("Ingrese tamaño del Gabinete: ")
+                peso = input("Ingrese peso del Gabinete: ")
+                dimensiones = input("Ingrese dimensiones del Gabinete: ")
+                capacidadVentiladores = input("tiene capacidad para ventiladores? ")
+                
+                gabinete = Gabinete(codigoProducto, modelo, marca, fabricante, numeroSerie, precio, cantidadInventario, fechaCompra, 
+                                    fechaFabricacion, proveedor, material,color, tamanioGabinete, peso, dimensiones, capacidadVentiladores)
+                gabinetes.append(gabinete)
+                print("Producto Agregado con exito")
+                
+                
             case 2:
-                pass
+                codigoProducto = GenerarCodigo()
+                modelo = input("Ingrese modelo del monitor: ")
+                marca = input("Ingrese el marca del monitor: ")
+                fabricante = input("Ingrese fabricante del monitor: ")
+                numeroSerie = input("Ingrese numero de serie del monitor: ")
+                precio = input("Ingrese precio del monitor: ")
+                cantidadInventario = input("Ingrese cantidad que comprara de monitor: s")
+                fechaCompra = input("Ingrese fecha de compra")
+                fechaFabricacion = input("Ingrese fehca de fabricacion del monitor: ")
+                proveedor = input("Ingrese proveedor del monitor: ")
+                resolucion = input("Ingrese la resolucion del monitor: ")
+                tamanioMonitor = input("Ingrese el tamaño del monitor: ")
+                conectividad = intput("Ingrese la conectividad del Monitor: ")
+                frecuencia = input("Ingrese la frecuencia del monitor: ")
+                
+                monitor = Monitor(codigoProducto, modelo, marca, fabricante, numeroSerie, precio, cantidadInventario, fechaCompra, 
+                                    fechaFabricacion, proveedor, resolucion, tamanioMonitor, conectividad, frecuencia)
+                monitores.append(monitor)
+                print("Producto Agregado con exito")
+                
+                
             case 3:
                 print("Ingresar datos del producto")
                 codigo_producto = GenerarCodigo()
@@ -126,9 +168,8 @@ def agregarProducto():
                 salida = input("Salida: ")
                 frecuencia_gpu= input("Frecuencia gpu: ")
                 producto = TarjetaGrafica(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, vram, salida, frecuencia_gpu)
-                productos.append(producto)
-                for producto in productos:
-                    print(producto)
+                tarjetasGraficas.append(producto)
+                
             case 4:
                 print("Ingresar datos del producto")
                 codigo_producto = GenerarCodigo()
@@ -148,9 +189,8 @@ def agregarProducto():
                 zocalo_cpu=input("Zocalo CPU")
                 frecuencia_cpu= input("Frecuencia cpu: ")
                 producto = Procesador(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, generacion, nucleos, cache, zocalo_cpu, frecuencia_cpu)
-                productos.append(producto)
-                for producto in productos:
-                    print(producto)
+                procesadores.append(producto)
+                
             case 5:
                 pass
             case 6:
@@ -170,7 +210,13 @@ def ConsultarProducto():
 
 clientes = []
 empleados = []
-productos = []
+gabinetes = []
+monitores = []
+procesadores = []
+tarjetasGraficas = []
+productosNuevos = []
+combos = []
+Inventario = [gabinetes, monitores, procesadores, tarjetasGraficas]
 
 #GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
 
