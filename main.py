@@ -89,13 +89,40 @@ def ContratarPersonal():
                         print("Opcion invalida")
                         break  
         except:
-            print("Datos Invalidos")      
+            print("Datos Invalidos")  
+            
+def agregarProducto():
+    try:
+        print("Que producto desea agregar?")
+        print("1. Monitor")
+        print("2. Gabinete")
+        print("3. Tarjeta Grafica")
+        print("4. Procesador")
+        print("5. Producto Nuevo")
+        print("6. Agregar Combo")
+        opcion = int(input("Ingrese una opcion: "))
+    except:
+        print("Opcion Invalida")
+        
+        match(opcion):
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                pass
+            case 4:
+                pass
+            case 5:
+                pass
+            case 6:
+                pass
+            case default:
+                print("Opcion Invalida")
 
 def ConsultarProducto():
     pass
 
-def AgregarProducto():
-    pass
     
 
 
@@ -177,6 +204,8 @@ while True:
                                         pass
                                     case 3:
                                         print("Consultor")
+                                        "consultar existencia"
+                                        "consultar por codigo de producto"
                                         pass
                                     case 4:
                                         print("Vendedor")
