@@ -142,7 +142,7 @@ def agregarProducto():
                 proveedor = input("Ingrese proveedor del monitor: ")
                 resolucion = input("Ingrese la resolucion del monitor: ")
                 tamanioMonitor = input("Ingrese el tamaño del monitor: ")
-                conectividad = intput("Ingrese la conectividad del Monitor: ")
+                conectividad = input("Ingrese la conectividad del Monitor: ")
                 frecuencia = input("Ingrese la frecuencia del monitor: ")
                 
                 monitor = Monitor(codigoProducto, modelo, marca, fabricante, numeroSerie, precio, cantidadInventario, fechaCompra, 
@@ -216,6 +216,7 @@ procesadores = []
 tarjetasGraficas = []
 productosNuevos = []
 combos = []
+productos=[]
 Inventario = [gabinetes, monitores, procesadores, tarjetasGraficas]
 
 #GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
