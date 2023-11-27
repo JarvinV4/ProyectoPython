@@ -208,13 +208,9 @@ def ConsultarProducto():
 
 clientes = []
 empleados = []
-<<<<<<< HEAD
 combos = []
 productoIndividual = []
-Inventario = []
-=======
-productos = []
->>>>>>> 0fd395e7a0893fc3bb77c888c0d6e3c9eaece01b
+inventario = []
 
 #GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
 
