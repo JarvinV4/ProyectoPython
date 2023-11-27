@@ -1,5 +1,5 @@
-
-class Persona:
+from abc import ABC,abstractmethod
+class Persona(ABC):
     def __init__(self, nombre, apellido, identidad, telefono):
         self.nombre = nombre
         self.apellido = apellido
