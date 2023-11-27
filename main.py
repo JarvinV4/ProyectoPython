@@ -102,7 +102,7 @@ def AgregarProducto():
 
 clientes = []
 empleados = []
-Inventario = []
+inventarios = []
 
 #GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
 
@@ -125,6 +125,7 @@ empleados.append(vendedor1)
 
 
 
+
 while True:
     try:
         print("Pagina de LOGIN:")
@@ -133,6 +134,7 @@ while True:
         print("2. Si usted es un empleado ")
         print("3. Para imprimir todos los clientes y empleados ** Nota: Solo para testing**")
         print("4. Salir")
+        
         opcion=int(input("Eliga una opcion: "))
         
         match(opcion):
