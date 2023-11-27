@@ -114,9 +114,47 @@ def agregarProducto():
             case 4:
                 pass
             case 5:
-                pass
+                print("Ingresar datos de nuevo producto")
+                codigoProducto = GenerarCodigo()
+                nombre_producto = input("Nombre del producto: ")
+                modelo = input("Modelo del producto: ")
+                marca = input("Marca del producto: ")
+                fabricante = input("Fabricante del producto: ")
+                numero_de_serie = input("Numero de serie del producto: ")
+                precio = input("Precio del producto: ")
+                cantidad_en_inventario = input("Cantidad en inventario: ")
+                fecha_de_compra = input("Fecha de compra: ")
+                fecha_de_fabricacion = input("Fecha de fabricion: ")
+                proveedor = input("Proveedor: ")
+                nuevo_producto = ProductoIndividual(nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor)
+                productoIndividual.append(nuevo_producto)
             case 6:
-                pass
+                print("Ingresar datos de Producto Combo")
+                codigoProducto = GenerarCodigo()
+                nombre_producto = input("Nombre del Combo: ")
+                modelo = input("Modelo del combo: ")
+                marca = input("Marca del combo: ")
+                fabricante = input("Fabricante del combo: ")
+                numero_de_serie = input("Numero de serie del combo: ")
+                precio = input("Precio del combo: ")
+                cantidad_en_inventario = input("Cantidad en inventario: ")
+                fecha_de_compra = input("Fecha de compra: ")
+                fecha_de_fabricacion = input("Fecha de fabricion: ")
+                proveedor = input("Proveedor: ")                
+                productos_incluidos = []
+                producto_combo = ProductoCombo(modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, productos_incluidos)
+                # Agregar productos al combo
+                while True:
+                    agregar_producto_al_combo = input("¿Desea agregar un producto al combo? (si/no): ")
+                    if agregar_producto_al_combo.lower() == 'si':
+                        # Llamas a la función para agregar un producto individual
+                        producto_incluido = agregarProducto()
+                        # Agregas el producto individual a la lista de productos incluidos en el combo
+                        productos_incluidos.append(producto_incluido)
+                    else:
+                        break
+
+                combos.append(producto_combo)
             case default:
                 print("Opcion Invalida")
 
@@ -129,6 +167,8 @@ def ConsultarProducto():
 
 clientes = []
 empleados = []
+combos = []
+productoIndividual = []
 Inventario = []
 
 #GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
