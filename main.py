@@ -90,10 +90,10 @@ def ContratarPersonal():
                         break  
         except:
             print("Datos Invalidos")  
-
+      
 def agregarProducto():
     try:
-        print("¿Qué producto desea agregar?")
+        print("Que producto desea agregar?")
         print("1. Monitor")
         print("2. Gabinete")
         print("3. Tarjeta Grafica")
@@ -101,57 +101,64 @@ def agregarProducto():
         print("5. Producto Nuevo")
         print("6. Agregar Combo")
         opcion = int(input("Ingrese una opcion: "))
-
-        if opcion == 3:
-            print("Ingresar datos del producto")
-            codigo_producto = int(GenerarCodigo())
-            nombre_producto = input("Nombre del producto: ")
-            modelo = input("Modelo del producto: ")
-            marca = input("Marca del producto: ")
-            fabricante = input("Fabricante del producto: ")
-            numero_de_serie = input("Numero de serie del producto: ")
-            precio = input("Precio del producto: ")
-            cantidad_en_inventario = input("Cantidad en inventario: ")
-            fecha_de_compra = input("Fecha de compra: ")
-            fecha_de_fabricacion = input("Fecha de fabricacion: ")
-            proveedor = input("Proveedor: ")
-            vram = input("VRAM: ")
-            salida = input("Salida: ")
-            frecuencia_gpu = input("Frecuencia GPU: ")
-            producto = TarjetaGrafica(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, vram, salida, frecuencia_gpu)
-            productos.append(producto)
-            for producto in productos:
-                print(producto)
-        elif opcion == 4:
-            print("Ingresar datos del producto")
-            codigo_producto = int(GenerarCodigo())  
-            nombre_producto = input("Nombre del producto: ")
-            modelo = input("Modelo del producto: ")
-            marca = input("Marca del producto: ")
-            fabricante = input("Fabricante del producto: ")
-            numero_de_serie = input("Numero de serie del producto: ")
-            precio = input("Precio del producto: ")
-            cantidad_en_inventario = input("Cantidad en inventario: ")
-            fecha_de_compra = input("Fecha de compra: ")
-            fecha_de_fabricacion = input("Fecha de fabricacion: ")
-            proveedor = input("Proveedor: ")
-            generacion = input("Generacion: ")
-            nucleos = input("Nucleos: ")
-            cache = input("Cache: ")
-            zocalo_cpu = input("Zocalo CPU")
-            frecuencia_cpu = input("Frecuencia CPU: ")
-            producto = Procesador(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, generacion, nucleos, cache, zocalo_cpu, frecuencia_cpu)
-            productos.append(producto)
-            for producto in productos:
-                print(producto)
-        elif opcion == 5:
-            pass
-        elif opcion == 6:
-            pass
-        else:
-            print("Opcion Invalida")
-    except :
+    except:
         print("Opcion Invalida")
+        
+        match(opcion):
+            case 1:
+                pass
+            case 2:
+                pass
+            case 3:
+                print("Ingresar datos del producto")
+                codigo_producto = GenerarCodigo()
+                nombre_producto = input("Nombre del producto: ")
+                modelo = input("Modelo del producto: ")
+                marca = input("Marca del producto: ")
+                fabricante = input("Fabricante del producto: ")
+                numero_de_serie = input("Numero de serie del producto: ")
+                precio = input("Precio del producto: ")
+                cantidad_en_inventario = input("Cantidad en inventario: ")
+                fecha_de_compra = input("Fecha de compra: ")
+                fecha_de_fabricacion = input("Fecha de fabricion: ")
+                proveedor = input("Proveedor: ")
+                vram= input("VRAM: ")
+                salida = input("Salida: ")
+                frecuencia_gpu= input("Frecuencia gpu: ")
+                producto = TarjetaGrafica(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, vram, salida, frecuencia_gpu)
+                productos.append(producto)
+                for producto in productos:
+                    print(producto)
+            case 4:
+                print("Ingresar datos del producto")
+                codigo_producto = GenerarCodigo()
+                nombre_producto = input("Nombre del producto: ")
+                modelo = input("Modelo del producto: ")
+                marca = input("Marca del producto: ")
+                fabricante = input("Fabricante del producto: ")
+                numero_de_serie = input("Numero de serie del producto: ")
+                precio = input("Precio del producto: ")
+                cantidad_en_inventario = input("Cantidad en inventario: ")
+                fecha_de_compra = input("Fecha de compra: ")
+                fecha_de_fabricacion = input("Fecha de fabricion: ")
+                proveedor = input("Proveedor: ")
+                generacion= input("Generacion: ")
+                nucleos = input("Nucleos: ")
+                cache= input("Cache: ")
+                zocalo_cpu=input("Zocalo CPU")
+                frecuencia_cpu= input("Frecuencia cpu: ")
+                producto = Procesador(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, generacion, nucleos, cache, zocalo_cpu, frecuencia_cpu)
+                productos.append(producto)
+                for producto in productos:
+                    print(producto)
+            case 5:
+                pass
+            case 6:
+                pass
+            case default:
+                print("Opcion Invalida")
+
+
 
 
 def ConsultarProducto():
