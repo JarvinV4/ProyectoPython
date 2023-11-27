@@ -103,7 +103,7 @@ def agregarProducto():
         opcion = int(input("Ingrese una opcion: "))
     except:
         print("Opcion Invalida")
-        
+    else:
         match(opcion):
             case 1:
                 pass
@@ -153,7 +153,7 @@ def agregarProducto():
                     print(producto)
             case 5:
                 print("Ingresar datos de nuevo producto")
-                codigoProducto = GenerarCodigo()
+                codigo_producto = GenerarCodigo()
                 nombre_producto = input("Nombre del producto: ")
                 modelo = input("Modelo del producto: ")
                 marca = input("Marca del producto: ")
@@ -164,11 +164,12 @@ def agregarProducto():
                 fecha_de_compra = input("Fecha de compra: ")
                 fecha_de_fabricacion = input("Fecha de fabricion: ")
                 proveedor = input("Proveedor: ")
-                nuevo_producto = ProductoIndividual(nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor)
+                nuevo_producto = ProductoIndividual(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor)
                 productoIndividual.append(nuevo_producto)
+                print("Producto agregado con exito.")
             case 6:
                 print("Ingresar datos de Producto Combo")
-                codigoProducto = GenerarCodigo()
+                codigo_producto = GenerarCodigo()
                 nombre_producto = input("Nombre del Combo: ")
                 modelo = input("Modelo del combo: ")
                 marca = input("Marca del combo: ")
@@ -180,7 +181,7 @@ def agregarProducto():
                 fecha_de_fabricacion = input("Fecha de fabricion: ")
                 proveedor = input("Proveedor: ")                
                 productos_incluidos = []
-                producto_combo = ProductoCombo(modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, productos_incluidos)
+                producto_combo = ProductoCombo(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, productos_incluidos)
                 # Agregar productos al combo
                 while True:
                     agregar_producto_al_combo = input("¿Desea agregar un producto al combo? (si/no): ")
@@ -191,6 +192,7 @@ def agregarProducto():
                         productos_incluidos.append(producto_incluido)
                     else:
                         break
+                print("Producto agregado con exito.")
 
                 combos.append(producto_combo)
             case default:
@@ -246,7 +248,9 @@ while True:
         print("4. Salir")
         
         opcion=int(input("Eliga una opcion: "))
-        
+    except:
+        print("Opcion Invalida")  
+    else:    
         match(opcion):
             case 1:
                 print("Cliente")
@@ -297,10 +301,8 @@ while True:
                                         pass
 
             case 3:
-                for producto in productos:
+                for producto in inventario:
                     print(producto)
             
             case default:
-                print("Opcion invalida1")
-    except:
-            print("Opcion Invalida")    
+                print("Opcion invalida1")  

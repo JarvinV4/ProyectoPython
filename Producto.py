@@ -25,11 +25,6 @@ class Producto(ABC):
 
         # Registrar el nuevo código de producto
         Producto._productos_registrados.add(codigo_producto)
-
-    #Método abstracto para calcular el precio del producto
-    @abstractmethod
-    def precio_producto(self):
-        pass
         
     @classmethod
     def eliminar_producto(cls, codigo_producto):
