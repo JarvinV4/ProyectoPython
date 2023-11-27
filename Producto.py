@@ -4,14 +4,14 @@ from typing import List
 class Producto(ABC):
     _productos_registrados = set()
 
-    def __init__(self, codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor):
+    def __init__(self, codigo_producto,  modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor):
         #Verifica si el codigo del producto ya existe
         while codigo_producto in Producto._productos_registrados:
             print("Advertencia: El codigo ya esta en uso.")
             #Solicitar un nuevo codigo
             codigo_producto = input("Ingrese un nuevo codigo de producto: ")
 
-        self._nombre_producto = nombre_producto
+        
         self._codigo_producto = int(codigo_producto)
         self._modelo = modelo
         self._numero_de_serie = numero_de_serie
@@ -25,7 +25,7 @@ class Producto(ABC):
 
         # Registrar el nuevo código de producto
         Producto._productos_registrados.add(codigo_producto)
-
+"""
     #Método abstracto para calcular el precio del producto
     @abstractmethod
     def precio_producto(self):
@@ -67,3 +67,5 @@ class ProductoCombo(Producto):
     #Calcula el precio total del combo.
     def precio_producto(self):
         return sum(producto.precio for producto in self._productos_incluidos)
+        
+        """

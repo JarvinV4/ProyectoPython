@@ -5,7 +5,7 @@ from Empleados.Administrador import Administrador
 from Empleados.Comprador import Comprador
 from Empleados.Consultor import Consultor
 from Empleados.Vendedor import Vendedor
-from Producto import Producto, ProductoIndividual, ProductoCombo
+#from Producto import Producto, ProductoIndividual, ProductoCombo
 from Productos.Gabinete import Gabinete
 from Productos.Monitor import Monitor
 from Productos.Procesador import Procesador
@@ -103,7 +103,7 @@ def agregarProducto():
         opcion = int(input("Ingrese una opcion: "))
     except:
         print("Opcion Invalida")
-        
+    else:
         match(opcion):
             case 1:
                 codigoProducto = GenerarCodigo()
@@ -131,6 +131,7 @@ def agregarProducto():
                 
             case 2:
                 codigoProducto = GenerarCodigo()
+                
                 modelo = input("Ingrese modelo del monitor: ")
                 marca = input("Ingrese el marca del monitor: ")
                 fabricante = input("Ingrese fabricante del monitor: ")
@@ -154,7 +155,8 @@ def agregarProducto():
             case 3:
                 print("Ingresar datos del producto")
                 codigo_producto = GenerarCodigo()
-                nombre_producto = input("Nombre del producto: ")
+                
+                
                 modelo = input("Modelo del producto: ")
                 marca = input("Marca del producto: ")
                 fabricante = input("Fabricante del producto: ")
@@ -167,13 +169,14 @@ def agregarProducto():
                 vram= input("VRAM: ")
                 salida = input("Salida: ")
                 frecuencia_gpu= input("Frecuencia gpu: ")
-                producto = TarjetaGrafica(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, vram, salida, frecuencia_gpu)
-                tarjetasGraficas.append(producto)
+                producto = TarjetaGrafica(codigo_producto, modelo, marca, fabricante, numero_de_serie,precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, vram, salida, frecuencia_gpu)
+                productos.append(producto)
+                print(producto)
                 
             case 4:
                 print("Ingresar datos del producto")
                 codigo_producto = GenerarCodigo()
-                nombre_producto = input("Nombre del producto: ")
+                
                 modelo = input("Modelo del producto: ")
                 marca = input("Marca del producto: ")
                 fabricante = input("Fabricante del producto: ")
@@ -186,10 +189,11 @@ def agregarProducto():
                 generacion= input("Generacion: ")
                 nucleos = input("Nucleos: ")
                 cache= input("Cache: ")
-                zocalo_cpu=input("Zocalo CPU")
+                zocalo_cpu=input("Zocalo CPU: ")
                 frecuencia_cpu= input("Frecuencia cpu: ")
-                producto = Procesador(codigo_producto, nombre_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, generacion, nucleos, cache, zocalo_cpu, frecuencia_cpu)
-                procesadores.append(producto)
+                producto = Procesador(codigo_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, generacion, nucleos, cache, zocalo_cpu, frecuencia_cpu)
+                productos.append(producto)
+                print(producto)
                 
             case 5:
                 pass
@@ -242,7 +246,7 @@ empleados.append(vendedor1)
 
 
 while True:
-    try:
+    
         print("Pagina de LOGIN:")
         print("Elija la opcion adecuada a sus necesidades:")
         print("1. Si usted es cliente ")
@@ -307,5 +311,3 @@ while True:
             
             case default:
                 print("Opcion invalida1")
-    except:
-            print("Opcion Invalida")    

@@ -8,3 +8,6 @@ class Procesador(Producto):
         self._cache = cache
         self._zocalo_cpu = zocalo_cpu
         self._frecuencia_cpu = frecuencia_cpu
+
+    def __str__(self):
+        return (f"Procesador: {self._marca} {self._modelo}, Generacion: {self._generacion}, Nucleos: {self._nucleos}, Cache: {self._cache}, Zocalo CPU: {self._zocalo_cpu}, Frecuencia CPU: {self._frecuencia_cpu}, Precio: {self._precio}")
