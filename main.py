@@ -373,10 +373,18 @@ def agregarProducto():
             print("Ingrese datos numericos para el precio")
 #Consulta productos mediante codigo
 def ConsultarProducto(codigoBusqueda):
-    for producto in gabinetes, monitores, procesadores, tarjetasGraficas, combos, productosNuevos:
-        if producto._codigo_producto==codigoBusqueda:
-            print(producto)
-
+    validacion = False
+    for tipoProducto in inventario:
+        for producto in tipoProducto:
+            if   codigoBusqueda == producto._codigo_producto:
+                print("El producto buscado consultado es: ")
+                print(f'{producto}\n')
+                validacion = True
+                break
+    if validacion ==False:
+        print("El producto consultado no existe en inventario\n")
+           
+            
 def ImprimirInventario():
     for tipoProducto in inventario:
         print("")
@@ -663,7 +671,7 @@ def menu():
                                                 print("Opcion Invalida")
                             case 2:
                                 ImprimirInventario()
-                                #print(gabinete1._cantidad_en_inventario)
+                                print(gabinete1._cantidad_en_inventario)
                                 pass
                             case 3:
                                 menu()
@@ -715,10 +723,13 @@ def menu():
                                             agregarProducto()
                                             
                                         case 3:
+                                            print("\n================================================================\n")                                           
                                             print("Consultor")
-                                            codigo=input("Ingrese el codigo del producto a buscar: ")
+                                            codigo = int(input("Ingrese el codigo del producto a buscar: "))
                                             ConsultarProducto(codigo)
-                                            pass
+                                            print("================================================================\n")
+                                            
+                                            
                                         case 4:
                                             print("Vendedor")
                                             pass

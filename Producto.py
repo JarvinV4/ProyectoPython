@@ -63,24 +63,24 @@ class ProductoIndividual(Producto):
 
 class ProductoCombo(Producto):        
     nombre_producto = None
-    codigoCombo = None
+    _codigo_producto = None
     precio = None
     cantidadInventario = None
     fechaCompra = None
     productosIncluidos = []
     
     
-    def __init__(self, nombreCombo, codigoCombo, cantidadInventario, fecha_de_compra, productosIncluidos):
+    def __init__(self, nombreCombo, _codigo_producto, cantidadInventario, fecha_de_compra, productosIncluidos):
         self._tipoProducto = "Combos"
         self.cantidadInventario = cantidadInventario
         self._fecha_de_compra = fecha_de_compra
         self.nombreCombo = nombreCombo
-        self.codigoCombo = codigoCombo
+        self._codigo_producto = _codigo_producto
         self.productosIncluidos = productosIncluidos
 
         
     def __str__(self):
-        comboInfo= f'[Nombre Combo: {self.nombreCombo} Cantidad Inventario: {self.cantidadInventario} Codigo Combo: {self.codigoCombo} ]'
+        comboInfo= f'[Nombre Combo: {self.nombreCombo} Cantidad Inventario: {self.cantidadInventario} Codigo Combo: {self._codigo_producto} ]'
         comboInfo += '\nProductos Incluidos:\n'
         for i, producto in enumerate(self.productosIncluidos, start=1):
             comboInfo += f'{i}. {producto.__str__()} \n'
@@ -104,7 +104,7 @@ class ProductoCombo(Producto):
         
     def InfoCombo(self):
         # Formatea la información del combo
-        combo_info = f'Nombre Combo: {self.nombreCombo}\nCódigo Combo: {self.codigoCombo}\nPrecio Total del Combo: {self.precio_combo()}\n, Precio del combo con descuento: {self.precio_combo_descuento()}'
+        combo_info = f'Nombre Combo: {self.nombreCombo}\nCódigo Combo: {self._codigo_producto}\nPrecio Total del Combo: {self.precio_combo()}\n, Precio del combo con descuento: {self.precio_combo_descuento()}'
         combo_info += f'Cantidad en Inventario: {self.cantidadInventario}\nFecha de Compra: {self._fecha_de_compra}\n'
         
         # Agrega información de los productos incluidos
