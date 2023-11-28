@@ -378,11 +378,11 @@ def ConsultarProducto(codigoBusqueda):
         for producto in tipoProducto:
             if   codigoBusqueda == producto._codigo_producto:
                 print("El producto buscado consultado es: ")
-                print(f'{producto}\n')
+                print(f'\n{producto}\n')
                 validacion = True
                 break
     if validacion ==False:
-        print("El producto consultado no existe en inventario\n")
+        print("\nEl producto consultado no existe en inventario\n")
            
             
 def ImprimirInventario():
