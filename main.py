@@ -372,8 +372,10 @@ def agregarProducto():
         except:
             print("Ingrese datos numericos para el precio")
 #Consulta productos mediante codigo
-def ConsultarProducto():
-    nombreProducto = input("Ingrese el nombre del producto que desea buscar")
+def ConsultarProducto(codigoBusqueda):
+    for producto in gabinetes, monitores, procesadores, tarjetasGraficas, combos, productosNuevos:
+        if producto._codigo_producto==codigoBusqueda:
+            print(producto)
 
 def ImprimirInventario():
     for tipoProducto in inventario:
@@ -661,7 +663,7 @@ def menu():
                                                 print("Opcion Invalida")
                             case 2:
                                 ImprimirInventario()
-                                print(gabinete1._cantidad_en_inventario)
+                                #print(gabinete1._cantidad_en_inventario)
                                 pass
                             case 3:
                                 menu()
@@ -714,9 +716,8 @@ def menu():
                                             
                                         case 3:
                                             print("Consultor")
-                                            "consultar existencia"
-                                            "consultar por codigo de producto"
-                                            ConsultarProducto()
+                                            codigo=input("Ingrese el codigo del producto a buscar: ")
+                                            ConsultarProducto(codigo)
                                             pass
                                         case 4:
                                             print("Vendedor")
