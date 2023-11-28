@@ -27,6 +27,8 @@ class Gabinete(Producto):
         self._peso = float(peso)
         self._dimensiones = dimensiones
         self._capacidad_de_ventiladores = capacidad_de_ventiladores
+        self._tipoProducto = "Gabinete"
+        
         
     def __str__(self):
         return f"[Nombre Producto: {self.nombre_producto} Codigo Producto: {self._codigo_producto} Modelo: {self._modelo} Marca: {self._marca} Precio: {self._precio}]"

@@ -6,6 +6,8 @@ class TarjetaGrafica(Producto):
         self._vram = vram
         self._salida = salida
         self._frecuencia_gpu = frecuencia_gpu
+        self._tipoProducto = "Tarjeta Grafica"
+        
     
     def __str__(self):
         return f"[Nombre Producto: {self.nombre_producto} Codigo Producto: {self._codigo_producto} Modelo: {self._modelo} Marca: {self._marca} Precio: {self._precio}]"

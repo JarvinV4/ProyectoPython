@@ -7,6 +7,8 @@ class Monitor(Producto):
         self._tamano_monitor = tamano_monitor
         self._conectividad = conectividad
         self._frecuencia = frecuencia
+        self._tipoProducto = "Monitor"
+        
     
     def __str__(self):
         return f"[Nombre Producto: {self.nombre_producto} Codigo Producto: {self._codigo_producto} Modelo: {self._modelo} Marca: {self._marca} Precio: {self._precio}]"

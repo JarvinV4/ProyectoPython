@@ -356,7 +356,7 @@ def agregarProducto():
 
                     # Imprime la información del combo utilizando el método __str__
                     print("\nInformación del combo agregado:")
-                    print(producto_combo)
+                    print(producto_combo.InfoCombo())
                     print(producto_combo.precio_combo_descuento())
                     print("")
                     
@@ -374,6 +374,15 @@ def agregarProducto():
 #Consulta productos mediante codigo
 def ConsultarProducto():
     pass
+
+def ImprimirInventario():
+    for tipoProducto in inventario:
+        print("")
+        print(f'----------------------------------------------------{tipoProducto[0]._tipoProducto}----------------------------------------------------')
+        for producto in tipoProducto:
+            print(f'{producto}\n')
+    
+    
 
 def generarFactura(cliente, productosPorComprar ):
     
@@ -499,155 +508,160 @@ def menu():
                         
                         print("¿Que desea hacer?")
                         print("1. seleccionar productos a comprar")
-                        print("2. Consultar por algun producto mediante codigo de producto")
-                        print("3. Ver inventario")
+                        print("2. Ver inventario")
+                        print("3. Salir")
                         opcion = int(input("Ingrese una opcion: "))
                         print("================================================================\n")
                         
                     except:
-                        pass
+                        ("Opcion Invalida")
                     else:
                         match(opcion):
                             case 1:
                                 seguir = True
-                        while(seguir):
-                            try:
-                                print("================================================================")
-                                
-                                print("Qué desea comprar")
-                                print("1. Gabinete")
-                                print("2. Monitor")
-                                print("3. Tarjetas Graficas")
-                                print("4. Procesadores")
-                                print("5. Otros Productos")
-                                print("6. Combos")
-                                print("7. Terminar Compra")
-                                opcion = int(input("Qué desea realizar? "))
-                                print("================================================================")
-                                
-                            except:
-                                print("Ingrese Una Opcion")
-                            else:
-                                match(opcion):
-                                    case 1:
+                                while(seguir):
+                                    try:
                                         print("================================================================")
                                         
-                                        i = int(1)
-                                        for gabinete in gabinetes:
-                                            print(f'{i}. {gabinete}')
-                                            print("")
-                                            i += int(1)
-                                    
-                                        opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
-                                        opcionIndice -= int(1)
-                                        productosPorComprar.append(gabinetes[opcionIndice])
-                                        
-                                        print("\nProductos Incluidos")
-                                        for producto in productosPorComprar:
-                                            print(producto)
+                                        print("Qué desea comprar")
+                                        print("1. Gabinete")
+                                        print("2. Monitor")
+                                        print("3. Tarjetas Graficas")
+                                        print("4. Procesadores")
+                                        print("5. Otros Productos")
+                                        print("6. Combos")
+                                        print("7. Terminar Compra")
+                                        opcion = int(input("Qué desea realizar? "))
                                         print("================================================================")
                                         
-                                    case 2:
-                                        print("================================================================")
-                                        i = int(1)
-                                        for monitor in monitores:
-                                            print(f'{i}. {monitor}')
-                                            print("")
-                                            i += int(1)
+                                    except:
+                                        print("Ingrese Una Opcion")
+                                    else:
+                                        match(opcion):
+                                            case 1:
+                                                print("================================================================")
+                                                
+                                                i = int(1)
+                                                for gabinete in gabinetes:
+                                                    print(f'{i}. {gabinete}')
+                                                    print("")
+                                                    i += int(1)
                                             
-                                        opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
-                                        opcionIndice -= int(1)
-                                        productosPorComprar.append(monitores[opcionIndice])
-                                        
-                                        print("\nProductos Incluidos")
-                                        for producto in productosPorComprar:
-                                            print(producto)
-                                        print("================================================================")
-                                        
-                                    case 3:
-                                        print("================================================================")
-                                        
-                                        i = int(1)
-                                        for tarjetaGrafica in tarjetasGraficas:
-                                            print(f'{i}. {tarjetaGrafica}')
-                                            print("")
-                                            i += int(1)
-                                    
-                                        opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
-                                        opcionIndice -= int(1)
-                                        productosPorComprar.append(tarjetasGraficas[opcionIndice])
+                                                opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                                opcionIndice -= int(1)
+                                                productosPorComprar.append(gabinetes[opcionIndice])
+                                                
+                                                print("\nProductos Incluidos")
+                                                for producto in productosPorComprar:
+                                                    print(producto)
+                                                print("================================================================")
+                                                
+                                            case 2:
+                                                print("================================================================")
+                                                i = int(1)
+                                                for monitor in monitores:
+                                                    print(f'{i}. {monitor}')
+                                                    print("")
+                                                    i += int(1)
+                                                    
+                                                opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                                opcionIndice -= int(1)
+                                                productosPorComprar.append(monitores[opcionIndice])
+                                                
+                                                print("\nProductos Incluidos")
+                                                for producto in productosPorComprar:
+                                                    print(producto)
+                                                print("================================================================")
+                                                
+                                            case 3:
+                                                print("================================================================")
+                                                
+                                                i = int(1)
+                                                for tarjetaGrafica in tarjetasGraficas:
+                                                    print(f'{i}. {tarjetaGrafica}')
+                                                    print("")
+                                                    i += int(1)
+                                            
+                                                opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                                opcionIndice -= int(1)
+                                                productosPorComprar.append(tarjetasGraficas[opcionIndice])
 
-                                        print("\nProductos Incluidos")
-                                        for producto in productosPorComprar:
-                                            print(producto)
-                                        
-                                        print("================================================================")
-                                        
-                                    case 4:
-                                        print("================================================================")
-                                        
-                                        i = int(1)
-                                        for procesador in procesadores:
-                                            print(f'{i}. {procesador}')
-                                            print("")
-                                            i += int(1)
-                                    
-                                        opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
-                                        opcionIndice -= int(1)
-                                        productosPorComprar.append(procesadores[opcionIndice])
+                                                print("\nProductos Incluidos")
+                                                for producto in productosPorComprar:
+                                                    print(producto)
+                                                
+                                                print("================================================================")
+                                                
+                                            case 4:
+                                                print("================================================================")
+                                                
+                                                i = int(1)
+                                                for procesador in procesadores:
+                                                    print(f'{i}. {procesador}')
+                                                    print("")
+                                                    i += int(1)
+                                            
+                                                opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                                opcionIndice -= int(1)
+                                                productosPorComprar.append(procesadores[opcionIndice])
 
-                                        print("\nProductos Incluidos")
-                                        for producto in productosPorComprar:
-                                            print(producto)
+                                                print("\nProductos Incluidos")
+                                                for producto in productosPorComprar:
+                                                    print(producto)
+                                                    
+                                                print("================================================================")
+                                                    
+                                            case 5:
+                                                print("================================================================")
+                                                
+                                                i = int(1)
+                                                for producto in productosNuevos:
+                                                    print(f'{i}. {producto}')
+                                                    print("")
+                                                    i += int(1)
                                             
-                                        print("================================================================")
-                                            
-                                    case 5:
-                                        print("================================================================")
-                                        
-                                        i = int(1)
-                                        for producto in productosNuevos:
-                                            print(f'{i}. {producto}')
-                                            print("")
-                                            i += int(1)
-                                    
-                                        opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
-                                        opcionIndice -= int(1)
-                                        productosPorComprar.append(productosNuevos[opcionIndice])
+                                                opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                                opcionIndice -= int(1)
+                                                productosPorComprar.append(productosNuevos[opcionIndice])
 
-                                        print("\nProductos Incluidos")
-                                        for producto in productosPorComprar:
-                                            print(producto)
+                                                print("\nProductos Incluidos")
+                                                for producto in productosPorComprar:
+                                                    print(producto)
+                                                    
+                                                print("================================================================")
+                                                    
+                                            case 6:
+                                                print("================================================================")
+                                                
+                                                i = int(1)
+                                                for combo in combos:
+                                                    print(f'{i}. {combo}')
+                                                    print("")
+                                                    i += int(1)
                                             
-                                        print("================================================================")
-                                            
-                                    case 6:
-                                        print("================================================================")
-                                        
-                                        i = int(1)
-                                        for combo in combos:
-                                            print(f'{i}. {combo}')
-                                            print("")
-                                            i += int(1)
-                                    
-                                        opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
-                                        opcionIndice -= int(1)
-                                        productosPorComprar.append(combos[opcionIndice])
+                                                opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                                opcionIndice -= int(1)
+                                                productosPorComprar.append(combos[opcionIndice])
 
-                                        print("\nProductos Incluidos")
-                                        for producto in productosPorComprar:
-                                            print(producto)
+                                                print("\nProductos Incluidos")
+                                                for producto in productosPorComprar:
+                                                    print(producto)
+                                                    
+                                                print("================================================================")
+                                                    
+                                            case 7:
+                                                generarFactura(clienteActual, productosPorComprar)
+                                                
                                             
-                                        print("================================================================")
-                                            
-                                    case 7:
-                                        generarFactura(clienteActual, productosPorComprar)
-                                        
-                                    
-                                    case default:
-                                        print("Opcion Invalida")
-                        
-                
+                                            case default:
+                                                print("Opcion Invalida")
+                            case 2:
+                                ImprimirInventario()
+                                pass
+                            case 3:
+                                menu()
+
+    
                 case 2:
                     print("Empleado")
                     seguir = True
