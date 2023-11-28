@@ -474,8 +474,7 @@ while True:
         print("Elija la opcion adecuada a sus necesidades:")
         print("1. Si usted es cliente ")
         print("2. Si usted es un empleado ")
-        print("3. Para imprimir todos los clientes y empleados ** Nota: Solo para testing**")
-        print("4. Salir")
+        print("3. Salir")
         opcion=int(input("Elija una opcion: "))
         print("================================================================")
         
@@ -699,7 +698,8 @@ while True:
                                         pass
 
             case 3:
-                pass
+                print("Gracias por su visita ☻")
+                break
             
             case default:
                 print("Opcion invalida1")
