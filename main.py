@@ -416,7 +416,7 @@ def generarFactura(cliente, productosPorComprar ):
         producto._cantidad_en_inventario -= 1
     
     factura = Factura(cliente, productosPorComprar, vendedorActual, controlEnvio, fechaVenta, subtotal, total, codigoFactura )
-    
+    facturas.append(factura)
     factura.imprimirFactura()
         
 
@@ -431,6 +431,7 @@ productosNuevos = []
 combos = []
 inventario = [gabinetes, monitores, procesadores, tarjetasGraficas, combos, productosNuevos]
 productosPorComprar = []
+facturas = []
 
 #GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
 
@@ -694,7 +695,8 @@ def menu():
                                             print("Funcionalidades de administrador: ")
                                             print("1. *** Contratar nuevo empleado ***")
                                             print("2. *** Ver todos los empleados ***")
-                                            print("3. *** Cerrar sesion ***")
+                                            print("3. *** Regresar ***")
+                                            print("4. *** Cerrar sesion ***")
                                             seleccion = int(input("***Ingrese que desea hacer***: "))
                                             print("================================================================")   
                                             print("")
@@ -713,8 +715,9 @@ def menu():
                                                     for empleado in vendedores:
                                                         print(empleado)
                                                     print("================================================================")
-                                                        
                                                 case 3:
+                                                        break
+                                                case 4:
                                                     seguir = False
                                                     break
                                                 
@@ -725,14 +728,57 @@ def menu():
                                         case 3:
                                             print("\n================================================================\n")                                           
                                             print("Consultor")
-                                            codigo = int(input("Ingrese el codigo del producto a buscar: "))
-                                            ConsultarProducto(codigo)
-                                            print("================================================================\n")
                                             
+                                            print("\n¿Que desea hacer?")
+                                            print("1. Consultar Producto por codigo")
+                                            print("2. Ver todo el Inventario")
+                                            print("3. regresar")
+                                            print("4. Salir")
+                                            try:
+                                                opcion = int(input("Ingrese una opcion: "))
+                                                print("\n================================================================\n")                                           
+
+                                            except:
+                                                ("Opcion Invalida")
+                                            else:
+                                                match(opcion):
+                                                    case 1:
+                                                        codigo = int(input("Ingrese el codigo del producto a buscar: "))
+                                                        ConsultarProducto(codigo)
+                                                        print("================================================================\n")
+                                                    
+                                                    
+                                                    case 2:
+                                                        ImprimirInventario()
+                                                    case 3:
+                                                        break
+                                                    case 4:
+                                                        menu()
                                             
                                         case 4:
+                                            print("\n================================================================\n")                                           
                                             print("Vendedor")
-                                            pass
+                                            
+                                            print("\n¿Que desea hacer?")
+                                            print("1. Imprimir Facturas")
+                                            print("2. regresar")
+                                            print("3. Salir")
+                                            try:
+                                                opcion = int(input("Ingrese una opcion: "))
+                                                print("\n================================================================\n")                                           
+
+                                            except:
+                                                ("Opcion Invalida")
+                                            else:
+                                                match(opcion):
+                                                    case 1:
+                                                        for factura in facturas:
+                                                            factura.imprimirFactura()
+                                                    
+                                                    case 2:
+                                                        break
+                                                    case 3:
+                                                        menu()
 
                 case 3:
                     print("Gracias por su visita ☻")
