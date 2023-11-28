@@ -3,6 +3,7 @@ from Personal import Personal
 class Comprador(Personal):
     def __init__(self, nombre, apellido, identidad, telefono, no_empleado, salario):
         super().__init__(nombre, apellido, identidad, telefono, no_empleado, salario)
+        self.nivelAcceso = 2
 
     def ComprarInventario():
         print("Comprando producot")
