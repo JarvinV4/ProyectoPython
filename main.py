@@ -402,7 +402,8 @@ def generarFactura(cliente, productosPorComprar ):
     subtotal =  sum(producto._precio for producto in productosPorComprar)
     total = subtotal * 1.12
     codigoFactura = GenerarCodigo()
-  
+    for producto in productosPorComprar:
+        producto._cantidad_en_inventario -= 1
     
     factura = Factura(cliente, productosPorComprar, vendedorActual, controlEnvio, fechaVenta, subtotal, total, codigoFactura )
     
@@ -531,6 +532,7 @@ def menu():
                                         print("5. Otros Productos")
                                         print("6. Combos")
                                         print("7. Terminar Compra")
+                                        print("8. Cerrar sesion")
                                         opcion = int(input("Qué desea realizar? "))
                                         print("================================================================")
                                         
@@ -652,11 +654,14 @@ def menu():
                                             case 7:
                                                 generarFactura(clienteActual, productosPorComprar)
                                                 
+                                            case 8:
+                                                menu()
                                             
                                             case default:
                                                 print("Opcion Invalida")
                             case 2:
                                 ImprimirInventario()
+                                print(gabinete1._cantidad_en_inventario)
                                 pass
                             case 3:
                                 menu()
