@@ -373,7 +373,7 @@ def agregarProducto():
             print("Ingrese datos numericos para el precio")
 #Consulta productos mediante codigo
 def ConsultarProducto():
-    pass
+    nombreProducto = input("Ingrese el nombre del producto que desea buscar")
 
 def ImprimirInventario():
     for tipoProducto in inventario:
@@ -695,6 +695,8 @@ def menu():
                                                     
                                                     for empleado in empleados:
                                                         print(empleado)
+                                                    for empleado in vendedores:
+                                                        print(empleado)
                                                     print("================================================================")
                                                         
                                                 case 3:
@@ -709,6 +711,7 @@ def menu():
                                             print("Consultor")
                                             "consultar existencia"
                                             "consultar por codigo de producto"
+                                            ConsultarProducto()
                                             pass
                                         case 4:
                                             print("Vendedor")
