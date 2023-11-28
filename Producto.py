@@ -57,8 +57,7 @@ class ProductoCombo(Producto):
     fechaCompra = None
     productosIncluidos = []
     
-    def __init__(self, nombreCombo, codigoCombo, precio, cantidadInventario, fecha_de_compra, productosIncluidos):
-        self._precio = precio
+    def __init__(self, nombreCombo, codigoCombo, cantidadInventario, fecha_de_compra, productosIncluidos):
         self.cantidadInventario = cantidadInventario
         self._fecha_de_compra = fecha_de_compra
         self.nombreCombo = nombreCombo
@@ -68,11 +67,14 @@ class ProductoCombo(Producto):
     #Calcula el precio total del combo.
     def precio_combo(self):
         #return sum(producto._precio for producto in self.productosIncludos)
-        if len(self.productosIncluidos) > 2:
-            # Calcular el precio total con descuento del 15%
-            precio_total = sum(producto._precio for producto in self.productosIncluidos)
-            descuento = 0.15 * precio_total
-            precio_con_descuento = precio_total - descuento
+        precio_total = sum(producto._precio for producto in self.productosIncluidos)
+        return precio_total
+        
+        
+    def precio_combo_descuento(self):  
+        if len(self.productosIncluidos) > 2:  
+            descuento = 0.15 * self.precio_combo()
+            precio_con_descuento = self.precio_combo() - descuento
             return precio_con_descuento
         else:
             # Calcular el precio total sin descuento
@@ -80,7 +82,7 @@ class ProductoCombo(Producto):
         
     def __str__(self):
         # Formatea la información del combo
-        combo_info = f'Nombre Combo: {self.nombreCombo}\nCódigo Combo: {self.codigoCombo}\nPrecio Total del Combo: {self.precio_combo()}\n'
+        combo_info = f'Nombre Combo: {self.nombreCombo}\nCódigo Combo: {self.codigoCombo}\nPrecio Total del Combo: {self.precio_combo()}\n, Precio del combo con descuento: {self.precio_combo_descuento()}'
         combo_info += f'Cantidad en Inventario: {self.cantidadInventario}\nFecha de Compra: {self._fecha_de_compra}\n'
         
         # Agrega información de los productos incluidos

@@ -231,10 +231,10 @@ def agregarProducto():
                 
                 # Agregar productos al combo
                 while True:
-                    agregar_producto_al_combo = input("\n¿Desea agregar un producto existente al combo? (si/no): ")
-                    print("")
+                    print("\n¿Que desea hacer?")
+                    agregar_producto_al_combo = input('"1". agregar un producto existente al combo \n"2".  Agregar Producto nuevo al combo \nEscribir "salir" para regresar \n')
                     
-                    if agregar_producto_al_combo.lower() == 'si':
+                    if agregar_producto_al_combo.lower() == '1':
                         try:
                             print("Que producto desea agregar?")
                             print("1. Gabinete")
@@ -260,18 +260,9 @@ def agregarProducto():
                                     opcionIndice -= int(1)
                                     productos_incluidos.append(gabinetes[opcionIndice])
                                     
+                                    print("\nProductos Incluidos")
                                     for producto in productos_incluidos:
-                                        print("Productos Incluidos")
                                         print(producto)
-                                    
-                                    """ print(gabinetes[opcionIndice].cantidad_en_inventario)
-                                    gabinetes[opcionIndice].cantidad_en_inventario -= int(1)
-                                    print(gabinetes[opcionIndice].cantidad_en_inventario)"""
-                                        
-                                    """ gabineteTemp = gabinete
-                                    gabinete.cantidad_en_inventario -= 1
-                                    productos_incluidos.append(gabineteTemp)"""
-                                        
                                     
                                 case 2:
                                     i = int(1)
@@ -284,8 +275,8 @@ def agregarProducto():
                                     opcionIndice -= int(1)
                                     productos_incluidos.append(monitores[opcionIndice])
                                     
+                                    print("\nProductos Incluidos")
                                     for producto in productos_incluidos:
-                                        print("Productos Incluidos")
                                         print(producto)
                                     
                                 case 3:
@@ -299,8 +290,8 @@ def agregarProducto():
                                     opcionIndice -= int(1)
                                     productos_incluidos.append(tarjetasGraficas[opcionIndice])
 
+                                    print("\nProductos Incluidos")
                                     for producto in productos_incluidos:
-                                        print("Productos Incluidos")
                                         print(producto)
                                     
                                 case 4:
@@ -314,37 +305,39 @@ def agregarProducto():
                                     opcionIndice -= int(1)
                                     productos_incluidos.append(procesadores[opcionIndice])
 
+                                    print("\nProductos Incluidos")
                                     for producto in productos_incluidos:
-                                        print("Productos Incluidos")
                                         print(producto)
 
                                 case default:
                                     print("Opcion Invalida")
                                         
-                    elif agregar_producto_al_combo.lower() == 'no':
+                    elif agregar_producto_al_combo.lower() == '2':
                         # Llamas a la función para agregar un producto individual
                         producto_incluido = agregarProducto()
                         # Agregas el producto individual a la lista de productos incluidos en el combo
                         productos_incluidos.append(producto_incluido)
                         
-                    elif agregar_producto_al_combo.lower() == 'salir':
+                    else:
                         print("\nSaliendo..")
                         break
-                    else:
-                        print("")
+                    
 
-                try:
-                    precio_combo = "Por definir"
-                    producto_combo = ProductoCombo(nombreCombo, codigoCombo, precio_combo, cantidad_en_inventario, fecha_de_compra, productos_incluidos)
-                    combos.append(producto_combo)
+                
+                    
+                producto_combo = ProductoCombo(nombreCombo, codigoCombo, cantidad_en_inventario, fecha_de_compra, productos_incluidos)
+                combos.append(producto_combo)
 
-                    # Imprime la información del combo utilizando el método __str__
-                    print("\nInformación del combo:")
-                    print(producto_combo)
-                    print(producto_combo.precio_combo())
-                    print("")
-                except:
-                    print("Por favor, ingrese un valor numérico válido para el precio del combo.")
+                # Imprime la información del combo utilizando el método __str__
+                print("\nInformación del combo agregado:")
+                print(producto_combo)
+                print(producto_combo.precio_combo_descuento())
+                print("")
+                
+                    
+                    
+                """except:
+                    print("Por favor, ingrese un valor numérico válido para el precio del combo.")"""
             case 7:
                 print("Salir...") 
             case default:
@@ -421,8 +414,8 @@ productosNuevos.append(producto_individual2)
 productosNuevos.append(producto_individual3)
 
 #Productos -Combo que ya existen en el programa
-producto_combo1 = ProductoCombo("ComboNavideño", 2323,  579.99, 15, "13/04/2022",  [producto_individual1])
-producto_combo2 = ProductoCombo("ComboBlackFriday", 2327,   349.99, 20, "24/12/2023",  [monitor1, producto_individual1, producto_individual2])
+producto_combo1 = ProductoCombo("ComboNavideño", 2323, 15, "13/04/2022",  [producto_individual1])
+producto_combo2 = ProductoCombo("ComboBlackFriday", 2327, 20, "24/12/2023",  [monitor1, producto_individual1, producto_individual2])
 combos.append(producto_combo1)
 combos.append(producto_combo2)
 
@@ -435,7 +428,7 @@ while True:
     print("2. Si usted es un empleado ")
     print("3. Para imprimir todos los clientes y empleados ** Nota: Solo para testing**")
     print("4. Salir")
-    opcion=int(input("Eliga una opcion: "))
+    opcion=int(input("Elija una opcion: "))
     print("")
     
     match(opcion):
