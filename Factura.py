@@ -6,6 +6,7 @@ from Productos.Gabinete import Gabinete
 from Productos.Monitor import Monitor
 from Productos.Procesador import Procesador
 from Productos.TarjetasGraficas import TarjetaGrafica
+from datetime import datetime
 
 class Factura():
     
@@ -25,7 +26,7 @@ class Factura():
         self.productosPorComprar = productosPorComprar
         self.vendedor = vendedor
         self.control_envio = control_envio
-        self.fecha_venta = fecha_venta
+        self.fecha_emision = datetime.now()
         self.subtotal = subtotal
         self.ISV = float(0.12)
         self.total = total
@@ -36,9 +37,9 @@ class Factura():
         print("{:^30}".format("Factura"))
         print("=" * 50)
         print("\nNúmero de Factura: {:>30}".format(self.codigoFactura))
-        print("Fecha de Emisión: {:>28}".format(self.fecha_venta))
+        print("Fecha de Emisión: {:>44}".format(self.fecha_emision.strftime("%Y-%m-%d %H:%M:%S")))
         print("Cliente: {:>35}".format(str(self.cliente)))
-        print("Vendedor: {:>35}".format(str(self.vendedor.nombre + " " + self.vendedor.apellido)))
+        print("Vendedor: {:>10}".format(str(self.vendedor.nombre)),(str(self.vendedor.apellido)))
         print("\nProductos:")
         for producto in self.productosPorComprar:
             if isinstance(producto, Producto):
@@ -46,13 +47,7 @@ class Factura():
             else:
                 print("Error: El objeto producto no es una instancia de la clase Producto.")
         print("\nSubtotal: {:>29}".format(f"{self.subtotal}%"))
-        print("Total a Pagar: {:>29}".format(self.total))
+        print("Total a Pagar: {:>38}".format(self.total))
         print("=" * 50)
     
     
-"""cliente1 = Cliente("Pamela", "Gomez", "123456789", "27831234", "1234567890")
-vendedor1 = Vendedor("Terre", "Neitor", "2627282930", "27831415", "004", 17000, 50)        
-
-factura = Factura(cliente1, [1,2,3,4,5] , vendedor1, "Adomicilio", "17/12/23", 100, float(100*1.12), "001200" )
-
-factura.imprimirFactura()"""
