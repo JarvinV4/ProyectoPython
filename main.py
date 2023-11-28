@@ -11,13 +11,6 @@ from Productos.Monitor import Monitor
 from Productos.Procesador import Procesador
 from Productos.TarjetasGraficas import TarjetaGrafica
 
-"""from Productos.Producto import Producto
-from Productos.ProductoCombo import Producto_combo
-from Productos.Gabinete import Gabinete
-from Productos.Monitor import Monitor
-from Productos.Procesador import Procesador
-from Productos.TarjetaVideo import TarjetaVideo"""
-
 import random
 
 #Genera los codigos de los productos
@@ -91,8 +84,7 @@ def ContratarPersonal():
         except:
             print("Datos Invalidos")  
       
-    
-      
+#Crea instancias de los productos ya definidos, crea productos nuevos y crea combos
 def agregarProducto():
     try:
         print("Que producto desea agregar?")
@@ -343,15 +335,12 @@ def agregarProducto():
             case default:
                 print("Opcion Invalida")
 
-
-
-
+#Consulta productos mediante codigo
 def ConsultarProducto():
     pass
 
-    
-
-
+def comprar():
+    pass
 
 clientes = []
 empleados = []
@@ -361,7 +350,7 @@ procesadores = []
 tarjetasGraficas = []
 productosNuevos = []
 combos = []
-Inventario = [gabinetes, monitores, procesadores, tarjetasGraficas]
+inventario = [gabinetes, monitores, procesadores, tarjetasGraficas, combos, productosNuevos]
 
 #GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
 
@@ -419,70 +408,85 @@ producto_combo2 = ProductoCombo("ComboBlackFriday", 2327, 20, "24/12/2023",  [mo
 combos.append(producto_combo1)
 combos.append(producto_combo2)
 
-
 while True:
-    """try:"""
-    print("Pagina de LOGIN:")
-    print("Elija la opcion adecuada a sus necesidades:")
-    print("1. Si usted es cliente ")
-    print("2. Si usted es un empleado ")
-    print("3. Para imprimir todos los clientes y empleados ** Nota: Solo para testing**")
-    print("4. Salir")
-    opcion=int(input("Elija una opcion: "))
-    print("")
-    
-    match(opcion):
-        case 1:
-            print("Cliente")
-            agregar_cliente()
-            for cliente in clientes:
-                print (cliente)
-        
-        case 2:
-            print("Empleado")
-            seguir = True
-            while(seguir):
-                noEmpleado = input("Ingrese su numero de empleado para iniciar sesion: ")
-                for empleado in empleados:
-                    if noEmpleado == empleado.no_empleado:
-                        print(empleado)
-                        acceso = empleado.nivelAcceso
-                        while(seguir):
-                            match(acceso):
-                                case 1:
-                                    print("administrador")
-                                    print("Funcionalidades de administrador: ")
-                                    print("1. *** Contratar nuevo empleado ***")
-                                    print("2. *** Ver todos los empleados ***")
-                                    print("3. *** Cerrar sesion ***")
-                                    seleccion = int(input("***Ingrese que desea hacer***: "))
-                                    print("")
-                                    
-                                    match(seleccion):
-                                        case 1:
-                                            ContratarPersonal()
-                                        case 2:
-                                            for empleado in empleados:
-                                                print(empleado)
-                                        case 3:
-                                            seguir = False
-                                            break
+   
+    try:
+        print("Pagina de LOGIN:")
+        print("Elija la opcion adecuada a sus necesidades:")
+        print("1. Si usted es cliente ")
+        print("2. Si usted es un empleado ")
+        print("3. Para imprimir todos los clientes y empleados ** Nota: Solo para testing**")
+        print("4. Salir")
+        opcion=int(input("Elija una opcion: "))
+        print("")
+    except:
+        print("Opcion Invalida")    
+    else:
+        match(opcion):
+            case 1:
+                print("Cliente")
+                agregar_cliente()
+                for cliente in clientes:
+                    print (cliente)
+                
+                try:    
+                    print("¿Que desea hacer?")
+                    print("1. seleccionar productos a comprar")
+                    print("2. Consultar por algun producto mediante codigo de producto")
+                    print("3. Ver inventario")
+                    opcion = int(input("Ingrese una opcion: "))
+                except:
+                    pass
+                else:
+                    pass
+                    
+                    
+            
+            case 2:
+                print("Empleado")
+                seguir = True
+                while(seguir):
+                    noEmpleado = input("Ingrese su numero de empleado para iniciar sesion: ")
+                    for empleado in empleados:
+                        if noEmpleado == empleado.no_empleado:
+                            print(empleado)
+                            acceso = empleado.nivelAcceso
+                            while(seguir):
+                                match(acceso):
+                                    case 1:
+                                        print("administrador")
+                                        print("Funcionalidades de administrador: ")
+                                        print("1. *** Contratar nuevo empleado ***")
+                                        print("2. *** Ver todos los empleados ***")
+                                        print("3. *** Cerrar sesion ***")
+                                        seleccion = int(input("***Ingrese que desea hacer***: "))
+                                        print("")
                                         
-                                case 2:
-                                    print("Comprador")
-                                    agregarProducto()
-                                    
-                                case 3:
-                                    print("Consultor")
-                                    "consultar existencia"
-                                    "consultar por codigo de producto"
-                                    pass
-                                case 4:
-                                    print("Vendedor")
-                                    pass
+                                        match(seleccion):
+                                            case 1:
+                                                ContratarPersonal()
+                                            case 2:
+                                                for empleado in empleados:
+                                                    print(empleado)
+                                            case 3:
+                                                seguir = False
+                                                break
+                                            
+                                    case 2:
+                                        print("Comprador")
+                                        agregarProducto()
+                                        
+                                    case 3:
+                                        print("Consultor")
+                                        "consultar existencia"
+                                        "consultar por codigo de producto"
+                                        pass
+                                    case 4:
+                                        print("Vendedor")
+                                        pass
 
-        case 3:
-            pass
-        
-        case default:
-            print("Opcion invalida1")
+            case 3:
+                pass
+            
+            case default:
+                print("Opcion invalida1")
