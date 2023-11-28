@@ -87,6 +87,7 @@ def ContratarPersonal():
 #Crea instancias de los productos ya definidos, crea productos nuevos y crea combos
 def agregarProducto():
     try:
+        print("================================================================")
         print("Que producto desea agregar?")
         print("1. Gabinete")
         print("2. Monitor")
@@ -95,13 +96,16 @@ def agregarProducto():
         print("5. Producto Nuevo")
         print("6. Agregar Combo")
         opcion = int(input("Ingrese una opcion: "))
+        print("================================================================")
         print("")
+        
     except:
         print("Opcion Invalida")
     else:
         
         match(opcion):
             case 1:
+                print("================================================================")
                 nombreProducto = input("ingrese el nombre del producto: ")
                 codigoProducto = GenerarCodigo()
                 modelo = input("Ingrese modelo del Gabinete: ")
@@ -124,10 +128,13 @@ def agregarProducto():
                                     fechaFabricacion, proveedor, material,color, tamanioGabinete, peso, dimensiones, capacidadVentiladores)
                 gabinetes.append(gabinete)
                 print("Producto Agregado con exito")
+                print("================================================================")
                 print("")
                 
                 
             case 2:
+                print("================================================================")
+                
                 nombreProducto = input("ingrese el nombre del producto: ")
                 codigoProducto = GenerarCodigo()
                 modelo = input("Ingrese modelo del monitor: ")
@@ -148,10 +155,14 @@ def agregarProducto():
                                     fechaFabricacion, proveedor, resolucion, tamanioMonitor, conectividad, frecuencia)
                 monitores.append(monitor)
                 print("Producto Agregado con exito")
+                print("================================================================")
+                
                 print("")
                 
                 
             case 3:
+                print("================================================================")
+                
                 print("Ingresar datos del producto")
                 codigo_producto = GenerarCodigo()
                 nombre_producto = input("Nombre del producto: ")
@@ -168,11 +179,15 @@ def agregarProducto():
                 salida = input("Salida: ")
                 frecuencia_gpu= input("Frecuencia gpu: ")
                 print("Producto Agregado con exito")
+                print("================================================================")
+                
                 print("")
                 producto = TarjetaGrafica(nombre_producto, codigo_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, vram, salida, frecuencia_gpu)
                 tarjetasGraficas.append(producto)
                 
             case 4:
+                print("================================================================")
+                
                 print("Ingresar datos del producto")
                 codigo_producto = GenerarCodigo()
                 nombre_producto = input("Nombre del producto: ")
@@ -193,9 +208,13 @@ def agregarProducto():
                 producto = Procesador(nombre_producto, codigo_producto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor, generacion, nucleos, cache, zocalo_cpu, frecuencia_cpu)
                 procesadores.append(producto)
                 print("Producto Agregado con exito")
+                print("================================================================")
+                
                 print("")
                 
             case 5:
+                print("================================================================")
+                
                 print("Ingresar datos de nuevo producto")
                 codigoProducto = GenerarCodigo()
                 nombre_producto = input("Nombre del producto: ")
@@ -211,23 +230,33 @@ def agregarProducto():
                 nuevo_producto = ProductoIndividual(nombre_producto, codigoProducto, modelo, marca, fabricante, numero_de_serie, precio, cantidad_en_inventario, fecha_de_compra, fecha_de_fabricacion, proveedor)
                 productosNuevos.append(nuevo_producto)
                 print("Producto Agregado con exito")
+                print("================================================================")
+                
                 print("")
             case 6:
+                print("================================================================")
+                
                 print("\nIngresar datos de Producto Combo")
                 codigoCombo = GenerarCodigo()
                 nombreCombo = input("Nombre del Combo: ")
                 cantidad_en_inventario = input("Cantidad en inventario: ")
                 fecha_de_compra = input("Fecha de compra: ")
                 productos_incluidos = []
+                print("================================================================")
                 
                 
                 # Agregar productos al combo
                 while True:
+                    print("================================================================")
+                    
                     print("\n¿Que desea hacer?")
                     agregar_producto_al_combo = input('"1". agregar un producto existente al combo \n"2".  Agregar Producto nuevo al combo \nEscribir "salir" para regresar \n')
+                    print("================================================================")
                     
                     if agregar_producto_al_combo.lower() == '1':
                         try:
+                            print("================================================================")
+                            
                             print("Que producto desea agregar?")
                             print("1. Gabinete")
                             print("2. Monitor")
@@ -236,6 +265,8 @@ def agregarProducto():
                             print("5. Producto Nuevo")
                             print("              ")
                             opcion = int(input("Ingrese una opcion: "))
+                            print("================================================================")   
+                            
                             print("")
                         except:
                             print("Opcion no válida")
@@ -351,6 +382,7 @@ tarjetasGraficas = []
 productosNuevos = []
 combos = []
 inventario = [gabinetes, monitores, procesadores, tarjetasGraficas, combos, productosNuevos]
+productosPorComprar = []
 
 #GENTE QUE YA EXISTE DENTRO DEL PROGRAMA
 
@@ -411,6 +443,8 @@ combos.append(producto_combo2)
 while True:
    
     try:
+        print("================================================================")
+        
         print("Pagina de LOGIN:")
         print("Elija la opcion adecuada a sus necesidades:")
         print("1. Si usted es cliente ")
@@ -418,6 +452,8 @@ while True:
         print("3. Para imprimir todos los clientes y empleados ** Nota: Solo para testing**")
         print("4. Salir")
         opcion=int(input("Elija una opcion: "))
+        print("================================================================")
+        
         print("")
     except:
         print("Opcion Invalida")    
@@ -430,16 +466,154 @@ while True:
                     print (cliente)
                 
                 try:    
+                    print("================================================================")
+                    
                     print("¿Que desea hacer?")
                     print("1. seleccionar productos a comprar")
                     print("2. Consultar por algun producto mediante codigo de producto")
                     print("3. Ver inventario")
                     opcion = int(input("Ingrese una opcion: "))
+                    print("================================================================\n")
+                    
                 except:
                     pass
                 else:
-                    pass
-                    
+                    match(opcion):
+                        case 1:
+                            seguir = True
+                    while(seguir):
+                        try:
+                            print("================================================================")
+                            
+                            print("Qué desea comprar")
+                            print("1. Gabinete")
+                            print("2. Monitor")
+                            print("3. Tarjetas Graficas")
+                            print("4. Procesadores")
+                            print("5. Otros Productos")
+                            print("6. Combos")
+                            print("7. Terminar Compra")
+                            opcion = int(input("Qué desea realizar? "))
+                            print("================================================================")
+                            
+                        except:
+                            print("Ingrese Una Opcion")
+                        else:
+                            match(opcion):
+                                case 1:
+                                    print("================================================================")
+                                    
+                                    i = int(1)
+                                    for gabinete in gabinetes:
+                                        print(f'{i}. {gabinete}')
+                                        print("")
+                                        i += int(1)
+                                
+                                    opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                    opcionIndice -= int(1)
+                                    productosPorComprar.append(gabinetes[opcionIndice])
+                                    
+                                    print("\nProductos Incluidos")
+                                    for producto in productosPorComprar:
+                                        print(producto)
+                                    print("================================================================")
+                                    
+                                case 2:
+                                    print("================================================================")
+                                    i = int(1)
+                                    for monitor in monitores:
+                                        print(f'{i}. {monitor}')
+                                        print("")
+                                        i += int(1)
+                                        
+                                    opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                    opcionIndice -= int(1)
+                                    productosPorComprar.append(monitores[opcionIndice])
+                                    
+                                    print("\nProductos Incluidos")
+                                    for producto in productosPorComprar:
+                                        print(producto)
+                                    print("================================================================")
+                                    
+                                case 3:
+                                    print("================================================================")
+                                    
+                                    i = int(1)
+                                    for tarjetaGrafica in tarjetasGraficas:
+                                        print(f'{i}. {tarjetaGrafica}')
+                                        print("")
+                                        i += int(1)
+                                
+                                    opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                    opcionIndice -= int(1)
+                                    productosPorComprar.append(tarjetasGraficas[opcionIndice])
+
+                                    print("\nProductos Incluidos")
+                                    for producto in productosPorComprar:
+                                        print(producto)
+                                    
+                                    print("================================================================")
+                                    
+                                case 4:
+                                    print("================================================================")
+                                    
+                                    i = int(1)
+                                    for procesador in procesadores:
+                                        print(f'{i}. {procesador}')
+                                        print("")
+                                        i += int(1)
+                                
+                                    opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                    opcionIndice -= int(1)
+                                    productosPorComprar.append(procesadores[opcionIndice])
+
+                                    print("\nProductos Incluidos")
+                                    for producto in productosPorComprar:
+                                        print(producto)
+                                        
+                                    print("================================================================")
+                                        
+                                case 5:
+                                    print("================================================================")
+                                    
+                                    i = int(1)
+                                    for producto in productosNuevos:
+                                        print(f'{i}. {producto}')
+                                        print("")
+                                        i += int(1)
+                                
+                                    opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                    opcionIndice -= int(1)
+                                    productosPorComprar.append(productosNuevos[opcionIndice])
+
+                                    print("\nProductos Incluidos")
+                                    for producto in productosPorComprar:
+                                        print(producto)
+                                        
+                                    print("================================================================")
+                                        
+                                case 6:
+                                    print("================================================================")
+                                    
+                                    i = int(1)
+                                    for combo in combos:
+                                        print(f'{i}. {combo}')
+                                        print("")
+                                        i += int(1)
+                                
+                                    opcionIndice = int(input("Ingrese el indice del articulo que desea agregar: "))
+                                    opcionIndice -= int(1)
+                                    productosPorComprar.append(combos[opcionIndice])
+
+                                    print("\nProductos Incluidos")
+                                    for producto in productosPorComprar:
+                                        print(producto)
+                                        
+                                    print("================================================================")
+                                        
+
+                                case default:
+                                    print("Opcion Invalida")
                     
             
             case 2:
@@ -454,20 +628,29 @@ while True:
                             while(seguir):
                                 match(acceso):
                                     case 1:
+                                        print("================================================================")
                                         print("administrador")
                                         print("Funcionalidades de administrador: ")
                                         print("1. *** Contratar nuevo empleado ***")
                                         print("2. *** Ver todos los empleados ***")
                                         print("3. *** Cerrar sesion ***")
                                         seleccion = int(input("***Ingrese que desea hacer***: "))
+                                        print("================================================================")   
                                         print("")
                                         
                                         match(seleccion):
                                             case 1:
+                                                
+                                                print("================================================================")
                                                 ContratarPersonal()
+                                                print("================================================================")
                                             case 2:
+                                                print("================================================================")
+                                                
                                                 for empleado in empleados:
                                                     print(empleado)
+                                                print("================================================================")
+                                                    
                                             case 3:
                                                 seguir = False
                                                 break
