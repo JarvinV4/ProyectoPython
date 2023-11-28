@@ -42,7 +42,7 @@ class Factura():
         print("\nProductos:")
         for producto in self.productosPorComprar:
             if isinstance(producto, Producto):
-                print("{:<30} {:>20}".format(f"- {str(producto.nombre)}:", f"{str(producto.precio)}"))
+                print("{:<30} {:>20}".format(f"- {str(producto.nombre_producto)}:", f"{str(producto._precio)}"))
             else:
                 print("Error: El objeto producto no es una instancia de la clase Producto.")
         print("\nSubtotal: {:>29}".format(f"{self.subtotal}%"))
@@ -50,9 +50,9 @@ class Factura():
         print("=" * 50)
     
     
-cliente1 = Cliente("Pamela", "Gomez", "123456789", "27831234", "1234567890")
+"""cliente1 = Cliente("Pamela", "Gomez", "123456789", "27831234", "1234567890")
 vendedor1 = Vendedor("Terre", "Neitor", "2627282930", "27831415", "004", 17000, 50)        
 
 factura = Factura(cliente1, [1,2,3,4,5] , vendedor1, "Adomicilio", "17/12/23", 100, float(100*1.12), "001200" )
 
-factura.imprimirFactura()
+factura.imprimirFactura()"""

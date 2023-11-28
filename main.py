@@ -10,6 +10,8 @@ from Productos.Gabinete import Gabinete
 from Productos.Monitor import Monitor
 from Productos.Procesador import Procesador
 from Productos.TarjetasGraficas import TarjetaGrafica
+from Factura import Factura
+from datetime import datetime
 
 import random
 
@@ -75,7 +77,7 @@ def ContratarPersonal():
                         break
                     case 3:
                         empleado = Vendedor(nombre, apellido, identidad, telefono, no_empleado, salario, None)
-                        empleados.append(empleado)
+                        vendedores.append(empleado)
                         break
                     
                     case default:
@@ -370,11 +372,34 @@ def agregarProducto():
 def ConsultarProducto():
     pass
 
-def comprar():
-    pass
+def generarFactura(cliente, productosPorComprar ):
+    
+    controlEnvios = ["Enviado", "Recibido", "Transito"]
+    i = int(1)
+    for vendedor in vendedores:
+        print(f'{i}. {vendedor}')
+        print("")
+        i += int(1)
+    
+    
+    opcionIndice = int(input("¿Quien realizo la venta? "))
+    opcionIndice -= int(1)
+    vendedorActual = vendedores[opcionIndice]
+    controlEnvio = random.choice(controlEnvios)
+    fechaVenta = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    subtotal =  sum(producto._precio for producto in productosPorComprar)
+    total = subtotal * 1.12
+    codigoFactura = GenerarCodigo()
+  
+    
+    factura = Factura(cliente, productosPorComprar, vendedorActual, controlEnvio, fechaVenta, subtotal, total, codigoFactura )
+    
+    factura.imprimirFactura()
+        
 
 clientes = []
 empleados = []
+vendedores = []
 gabinetes = []
 monitores = []
 procesadores = []
@@ -400,7 +425,7 @@ consultor1 = Consultor("Maki", "Zenin", "2122232425", "27831213", "003", 20000, 
 empleados.append(consultor1)
 #Vendedor(nombre, apellido, identidad, telefono, no_empleado, salario, ventas realizadas)
 vendedor1 = Vendedor("Terre", "Neitor", "2627282930", "27831415", "004", 17000, 50)
-empleados.append(vendedor1)
+vendedores.append(vendedor1)
 
 #Gabinetes existentes en el programa
 gabinete1 = Gabinete("Gabinete", 4251,  "4000D Airflow", "Corsair", "Corsair", "B08C7BGV3D", 79.98, 60, "18/05/2021", "15/09/2020", "Corsair Gaming, Inc.", "Acero, vidrio templado, plástico", "Negro", "Mid Tower", 17.31, "17,83 x 9,06 x 18,35", "120 Milímetros")
@@ -464,6 +489,8 @@ while True:
                 agregar_cliente()
                 for cliente in clientes:
                     print (cliente)
+                    
+                clienteActual = cliente
                 
                 try:    
                     print("================================================================")
@@ -611,7 +638,10 @@ while True:
                                         
                                     print("================================================================")
                                         
-
+                                case 7:
+                                    generarFactura(clienteActual, productosPorComprar)
+                                    
+                                
                                 case default:
                                     print("Opcion Invalida")
                     
